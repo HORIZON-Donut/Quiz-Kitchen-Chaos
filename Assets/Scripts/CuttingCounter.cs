@@ -87,6 +87,7 @@ public class CuttingCounter : MonoBehaviour
 			
 			int cuttingMax = 0;
 			float persent_process = 0f;
+			ProcessBar processBar;
 
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
             Debug.Log(playerKitchenObject.GetKitchenObjectname());
@@ -99,7 +100,7 @@ public class CuttingCounter : MonoBehaviour
                 	playerKitchenObject.transform.parent = counterTopPoint;
                 	playerKitchenObject.transform.localPosition = Vector3.zero;
                 	Debug.Log(cuttingMax);
-                	ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
+                	processBar = this.GetComponentInChildren<ProcessBar>();
                 	persent_process= (float)cuttingProcess / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	cuttingProcess++;
@@ -113,7 +114,7 @@ public class CuttingCounter : MonoBehaviour
                 	playerKitchenObject.transform.parent = counterTopPoint;
                 	playerKitchenObject.transform.localPosition = Vector3.zero;
                 	Debug.Log(cuttingMax);
-                	ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
+                	processBar = this.GetComponentInChildren<ProcessBar>();
                 	persent_process= (float)cuttingProcess / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	cuttingProcess++;
