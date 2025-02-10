@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuttingCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 6320002391789255200, guid: de8ddb47f11010d469c3f7c5d001bf30, type: 3}
+      propertyPath: m_TagString
+      value: Cutting
+      objectReference: {fileID: 0}
     - target: {fileID: 6320002391789255202, guid: de8ddb47f11010d469c3f7c5d001bf30, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -337,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825d7d1401ce8447db3efb0aa51f73b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 0}
+  counterTopPoint: {fileID: 2901655543613763464}
   cuttingRecipeSOArray:
   - {fileID: 11400000, guid: cea2ab545a71b4abea0c86edcfe994cb, type: 2}
   - {fileID: 11400000, guid: c97e5c31c322ad4fc9b356549805e772, type: 2}
@@ -347,6 +351,11 @@ MonoBehaviour:
 --- !u!4 &927047484093610374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6320002391789255202, guid: de8ddb47f11010d469c3f7c5d001bf30, type: 3}
+  m_PrefabInstance: {fileID: 6586690886605079460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2901655543613763464 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299113909474962476, guid: de8ddb47f11010d469c3f7c5d001bf30, type: 3}
   m_PrefabInstance: {fileID: 6586690886605079460}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7654511163019389687
