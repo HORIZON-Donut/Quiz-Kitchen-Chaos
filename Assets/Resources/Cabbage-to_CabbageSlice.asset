@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8dce93585cd45899ed10815fe6c2dd, type: 3}
   m_Name: Cabbage-to_CabbageSlice
   m_EditorClassIdentifier: 
-  from: {fileID: 0}
-  to: {fileID: 0}
-  cutCount: 0
+  from: {fileID: 11400000, guid: 8277bdeaefe0a36b2bb937185bc63288, type: 2}
+  to: {fileID: 11400000, guid: a687af96489d7685884a60883c38a12f, type: 2}
+  cutCount: 20
