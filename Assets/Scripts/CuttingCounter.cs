@@ -63,13 +63,13 @@ public class CuttingCounter : MonoBehaviour
 					break;
 
 				case "Cabbage":
-					cuttingMax = cuttingRecipeSOArray[1].cutCount;
+					cuttingMax = cuttingRecipeSOArray[2].cutCount;
                 	persent_process = (float)(cuttingProcess) / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	if ((cuttingProcess) >= cuttingMax)
                 	{
                     	Destroy(kitchenObject.gameObject);
-                    	Transform sliceTransform = Instantiate(cuttingRecipeSOArray[1].to.prefab, counterTopPoint);
+                    	Transform sliceTransform = Instantiate(cuttingRecipeSOArray[2].to.prefab, counterTopPoint);
                     	sliceTransform.transform.localPosition = Vector3.zero;
                     	processBar.CuttingCounter_OnProcessChanged(0f);
                     	cuttingProcess = 0;
@@ -139,7 +139,7 @@ public class CuttingCounter : MonoBehaviour
 					break;
 
 				case "Cabbage":
-					cuttingMax = cuttingRecipeSOArray[1].cutCount;
+					cuttingMax = cuttingRecipeSOArray[2].cutCount;
                 	playerKitchenObject.transform.parent = counterTopPoint;
                 	playerKitchenObject.transform.localPosition = Vector3.zero;
                 	Debug.Log(cuttingMax);
