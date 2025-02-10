@@ -34,7 +34,7 @@ public class CuttingCounter : MonoBehaviour
 			switch(kitchenObject.GetKitchenObjectname())
 			{
 				case "Tomato":
-					 cuttingMax = cuttingRecipeSOArray[0].cutCount;
+					cuttingMax = cuttingRecipeSOArray[0].cutCount;
                 	persent_process = (float)(cuttingProcess) / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	if ((cuttingProcess) >= cuttingMax)
