@@ -59,14 +59,14 @@ public class Player : MonoBehaviour
             containercounter.Interact(this);
             Debug.Log(collision.gameObject.name);
         }
-		else if (collision.gameObject.tag == "Bin")
-		{
-			Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-            selectedCounter.gameObject.SetActive(true);
-            CuttingCounter containercounter = collision.gameObject.GetComponent<CuttingCounter>();
-            containercounter.Interact(this);
-            Debug.Log(collision.gameObject.name);
-		}
+		//else if (collision.gameObject.tag == "Bin")
+		//{
+		//	Transform selectedCounter = collision.gameObject.transform.Find("Selected");
+        //    selectedCounter.gameObject.SetActive(true);
+        //    TrashBin containercounter = collision.gameObject.GetComponent<TrashCounter>();
+        //    containercounter.Interact(this);
+        //    Debug.Log(collision.gameObject.name);
+		//}
     }
     private void OnCollisionExit(Collision collision)
     {

@@ -20,8 +20,6 @@ public class TrashBin : MonoBehaviour
                 playerKitchenObject.transform.SetParent(this.transform);
                 playerKitchenObject.transform.parent = counterTopPoint;
                 playerKitchenObject.transform.localPosition = Vector3.zero;
-
-				Destroy(playerKitchenObject);
             }
         }
         else
