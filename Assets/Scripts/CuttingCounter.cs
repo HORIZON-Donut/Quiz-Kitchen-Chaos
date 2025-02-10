@@ -22,16 +22,20 @@ public class CuttingCounter : MonoBehaviour
     {
         if (cuttingProcess > 0)
         {
+			int cuttingMax = 0;
+			float persent_process = 0f;
+
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
             cuttingProcess += cuttingSpeed * Time.deltaTime;
             Cutting_FX(Time.deltaTime);
+
+			ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
 			
 			switch(kitchenObject.GetKitchenObjectname())
 			{
 				case "Tomato":
-					int cuttingMax = cuttingRecipeSOArray[0].cutCount;
-                	ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
-                	float persent_process = (float)(cuttingProcess) / cuttingMax;
+					 cuttingMax = cuttingRecipeSOArray[0].cutCount;
+                	persent_process = (float)(cuttingProcess) / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	if ((cuttingProcess) >= cuttingMax)
                 	{
@@ -41,6 +45,26 @@ public class CuttingCounter : MonoBehaviour
                     	processBar.CuttingCounter_OnProcessChanged(0f);
                     	cuttingProcess = 0;
                 	}
+					break;
+
+				case "Cheese":
+					cuttingMax = cuttingRecipeSOArray[1].cutCount;
+                	persent_process = (float)(cuttingProcess) / cuttingMax;
+                	processBar.CuttingCounter_OnProcessChanged(persent_process);
+                	if ((cuttingProcess) >= cuttingMax)
+                	{
+                    	Destroy(kitchenObject.gameObject);
+                    	Transform sliceTransform = Instantiate(cuttingRecipeSOArray[1].to.prefab, counterTopPoint);
+                    	sliceTransform.transform.localPosition = Vector3.zero;
+                    	processBar.CuttingCounter_OnProcessChanged(0f);
+                    	cuttingProcess = 0;
+                	}
+
+					break;
+
+				default:
+
+					Debug.Log("Not in the List");
 					break;
 			}
 

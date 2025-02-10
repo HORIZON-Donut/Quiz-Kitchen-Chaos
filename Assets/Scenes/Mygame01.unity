@@ -1650,6 +1650,7 @@ MonoBehaviour:
   counterTopPoint: {fileID: 1215767909}
   cuttingRecipeSOArray:
   - {fileID: 11400000, guid: cea2ab545a71b4abea0c86edcfe994cb, type: 2}
+  - {fileID: 11400000, guid: c97e5c31c322ad4fc9b356549805e772, type: 2}
   cuttingSpeed: 5
   knifeSpeed: 0.2
 --- !u!4 &1368620197 stripped
