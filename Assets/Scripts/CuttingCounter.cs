@@ -99,22 +99,6 @@ public class CuttingCounter : MonoBehaviour
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
             Debug.Log(playerKitchenObject.GetKitchenObjectname());
             cuttingProcess = 0;
-            if (playerKitchenObject.GetKitchenObjectname() == "Tomato")
-            {
-                Debug.Log("Slice Item!");
-                cuttingMax = cuttingRecipeSOArray[0].cutCount;
-                playerKitchenObject.transform.parent = counterTopPoint;
-                playerKitchenObject.transform.localPosition = Vector3.zero;
-                Debug.Log(cuttingMax);
-                ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
-                persent_process= (float)cuttingProcess / cuttingMax;
-                processBar.CuttingCounter_OnProcessChanged(persent_process);
-                cuttingProcess++;
-                animator.SetTrigger("Cut");
-                timer = 0f;
-
-            }
-
 			int cuttingMax;
 			float persent_process;
 			ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
@@ -122,7 +106,14 @@ public class CuttingCounter : MonoBehaviour
 			switch(playerKitchenObject.GetKitchenObjectname())
 			{
 				case "Tomato":
-					//
+					cuttingMax = cuttingRecipeSOArray[0].cutCount;
+					playerKitchenObject.transform.parent = counterTopPoint;
+					playerKitchenObject.transform.localPosition = Vector3.zero;
+					persent_process = (float)cuttingProcess/cuttingMax;
+					processBar.CuttingCounter_OnProcessChanged(persent_process);
+					cuttingProcess++;
+					animator.SetTrigger("Cut");
+					timer = 0f;
 					break;
 
 				case "Cheese":
