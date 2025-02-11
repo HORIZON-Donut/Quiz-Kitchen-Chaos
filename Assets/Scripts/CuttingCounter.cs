@@ -102,18 +102,41 @@ public class CuttingCounter : MonoBehaviour
             if (playerKitchenObject.GetKitchenObjectname() == "Tomato")
             {
                 Debug.Log("Slice Item!");
-                int cuttingMax = cuttingRecipeSOArray[0].cutCount;
+                cuttingMax = cuttingRecipeSOArray[0].cutCount;
                 playerKitchenObject.transform.parent = counterTopPoint;
                 playerKitchenObject.transform.localPosition = Vector3.zero;
                 Debug.Log(cuttingMax);
                 ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
-                float persent_process= (float)cuttingProcess / cuttingMax;
+                persent_process= (float)cuttingProcess / cuttingMax;
                 processBar.CuttingCounter_OnProcessChanged(persent_process);
                 cuttingProcess++;
                 animator.SetTrigger("Cut");
                 timer = 0f;
 
             }
+
+			int cuttingMax;
+			float persent_process;
+			ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
+
+			switch(playerKitchenObject.GetKitchenObjectname())
+			{
+				case "Tomato":
+					//
+					break;
+
+				case "Cheese":
+					//
+					break;
+
+				case "Cobbage":
+					//
+					break;
+
+				default:
+					Debug.Log("Not in list");
+					break;
+			}
         }
         else {
             if (this.HasKitchenObject() && listKitchenObject.Contains("Plate"))
