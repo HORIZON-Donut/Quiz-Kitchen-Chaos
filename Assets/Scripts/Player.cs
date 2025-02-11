@@ -39,35 +39,30 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Counter") 
         {
-            Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-            selectedCounter.gameObject.SetActive(true);
             ClearCounter clearcounter = collision.gameObject.GetComponent<ClearCounter>();
             clearcounter.Interact(this);
         }
         else if (collision.gameObject.tag == "Container")
         {
-            Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-            selectedCounter.gameObject.SetActive(true);
-            ContainerCounter containercounter = collision.gameObject.GetComponent<ContainerCounter>();
+           ContainerCounter containercounter = collision.gameObject.GetComponent<ContainerCounter>();
             containercounter.Interact(this);
             Debug.Log(collision.gameObject.name);
         }
         else if (collision.gameObject.tag == "Cutting")
         {
-            Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-            selectedCounter.gameObject.SetActive(true);
-            CuttingCounter containercounter = collision.gameObject.GetComponent<CuttingCounter>();
+           CuttingCounter containercounter = collision.gameObject.GetComponent<CuttingCounter>();
             containercounter.Interact(this);
             Debug.Log(collision.gameObject.name);
         }
         else if (collision.gameObject.tag == "PlatesCounter")
         {
-            Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-            selectedCounter.gameObject.SetActive(true);
-            PlateCounter platecounter = collision.gameObject.GetComponent<PlateCounter>();
+           PlateCounter platecounter = collision.gameObject.GetComponent<PlateCounter>();
             platecounter.Interact(this);
             Debug.Log(collision.gameObject.name);
         }
+
+		Transform selectedCounter = collision.gameObject.transform.Find("Selected");
+		if(selectedCounter != null) {selectedCounter.gameObject.SetActive(true);}
 		switch(collision.gameObject.tag)
 		{
 			case "Counter":
