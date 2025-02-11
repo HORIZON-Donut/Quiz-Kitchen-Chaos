@@ -1663,9 +1663,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 927047484093610372, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1215767910}
     - targetCorrespondingSourceObject: {fileID: 6041857952797646688, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 534997565}
@@ -1673,33 +1670,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1986310600}
   m_SourcePrefab: {fileID: 100100000, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
---- !u!1 &1215767908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 927047484093610372, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
-  m_PrefabInstance: {fileID: 1215767907}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1215767909 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2901655543613763464, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
-  m_PrefabInstance: {fileID: 1215767907}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1215767910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215767908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825d7d1401ce8447db3efb0aa51f73b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 1215767909}
-  cuttingRecipeSOArray:
-  - {fileID: 11400000, guid: cea2ab545a71b4abea0c86edcfe994cb, type: 2}
-  cuttingSpeed: 5
-  knifeSpeed: 0.2
 --- !u!4 &1368620197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1505502165548171976, guid: 12d9bf5aa92c13841abb9eec36b81afd, type: 3}
@@ -2524,7 +2494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb07f7b7c1b48df48929e033c85d4db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingCounter: {fileID: 1215767910}
+  cuttingCounter: {fileID: 0}
   barImage: {fileID: 1899510425}
 --- !u!4 &2002510393 stripped
 Transform:
