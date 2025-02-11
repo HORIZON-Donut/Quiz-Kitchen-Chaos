@@ -117,11 +117,25 @@ public class CuttingCounter : MonoBehaviour
 					break;
 
 				case "Cheese":
-					//
+					cuttingMax = cuttingRecipeSOArray[1].cutCount;
+					playerKitchenObject.transform.parent = counterTopPoint;
+					playerKitchenObject.transform.localPosition = Vector3.zero;
+					persent_process = (float)cuttingProcess/cuttingMax;
+					processBar.CuttingCounter_OnProcessChanged(persent_process);
+					cuttingProcess++;
+					animator.SetTrigger("Cut");
+					timer = 0f;
 					break;
 
 				case "Cobbage":
-					//
+					cuttingMax = cuttingRecipeSOArray[2].cutCount;
+					playerKitchenObject.transform.parent = counterTopPoint;
+					playerKitchenObject.transform.localPosition = Vector3.zero;
+					persent_process = (float)cuttingProcess/cuttingMax;
+					processBar.CuttingCounter_OnProcessChanged(persent_process);
+					cuttingProcess++;
+					animator.SetTrigger("Cut");
+					timer = 0f;
 					break;
 
 				default:
