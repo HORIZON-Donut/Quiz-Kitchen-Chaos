@@ -9,7 +9,7 @@ public class TrashBin : MonoBehaviour
 
     public void Interact(Player player)
     {
-        if (player.HasKitchenObject())
+        if (player.HasKitchenObject().Length > 0)
         {
             Debug.Log("Has item");
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
