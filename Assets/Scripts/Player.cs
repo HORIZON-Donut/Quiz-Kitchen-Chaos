@@ -68,6 +68,28 @@ public class Player : MonoBehaviour
             platecounter.Interact(this);
             Debug.Log(collision.gameObject.name);
         }
+		switch(collision.gameObject.tag)
+		{
+			case "Counter":
+				//
+				break;
+
+			case "Container":
+				//
+				break;
+
+			case "Cutting":
+				//
+				break;
+
+			case "PlatesCounter":
+				//
+				break;
+
+			default:
+				Debug.Log("Not in counter list");
+				break;
+		}
     }
     private void OnCollisionExit(Collision collision)
     {
