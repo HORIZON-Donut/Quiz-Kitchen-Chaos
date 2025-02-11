@@ -1,5 +1,6 @@
 using Unity.Collections;
 using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 
 public class ClearCounter : MonoBehaviour
@@ -9,9 +10,9 @@ public class ClearCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-        if (player.HasKitchenObject())
+        string[] listKitchenObject = player.HasKitchenObject();
+        if (listKitchenObject.Length == 1 && !listKitchenObject.Contains("Plate"))
         {
-            Debug.Log("Has item");
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
 
             if (playerKitchenObject !=null && !this.HasKitchenObject())
@@ -22,7 +23,7 @@ public class ClearCounter : MonoBehaviour
                 playerKitchenObject.transform.localPosition = Vector3.zero;
             }
         }
-        else
+        else if(listKitchenObject.Length == 0)
         {
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
             Debug.Log("Pick up!");

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -59,18 +60,18 @@ public class Player : MonoBehaviour
             containercounter.Interact(this);
             Debug.Log(collision.gameObject.name);
         }
-		//else if (collision.gameObject.tag == "Bin")
-		//{
-		//	Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-        //    selectedCounter.gameObject.SetActive(true);
-        //    TrashBin containercounter = collision.gameObject.GetComponent<TrashCounter>();
-        //    containercounter.Interact(this);
-        //    Debug.Log(collision.gameObject.name);
-		//}
+        else if (collision.gameObject.tag == "PlatesCounter")
+        {
+            Transform selectedCounter = collision.gameObject.transform.Find("Selected");
+            selectedCounter.gameObject.SetActive(true);
+            PlateCounter platecounter = collision.gameObject.GetComponent<PlateCounter>();
+            platecounter.Interact(this);
+            Debug.Log(collision.gameObject.name);
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Counter" || collision.gameObject.tag == "Container" || collision.gameObject.tag == "Cutting")
+        if (collision.gameObject.tag == "Counter" || collision.gameObject.tag == "Container" || collision.gameObject.tag == "Cutting" || collision.gameObject.tag == "PlatesCounter")
         {
             Transform selectedCounter = collision.gameObject.transform.Find("Selected");
             selectedCounter.gameObject.SetActive(false);
@@ -81,9 +82,33 @@ public class Player : MonoBehaviour
     {
         return holdPoint;
     }
-    public bool HasKitchenObject()
+    public string[] HasKitchenObject()
     {
-        KitchenObject playerKitchenObject = this.GetComponentInChildren<KitchenObject>();
-        return playerKitchenObject != null;
+        KitchenObject[] playerKitchenObject = this.GetComponentsInChildren<KitchenObject>();
+        string[] listkitchenObject = {};
+        if (playerKitchenObject.Length > 0)
+        {
+            foreach (KitchenObject obj in playerKitchenObject)
+            {
+                System.Array.Resize(ref listkitchenObject, listkitchenObject.Length + 1);
+                listkitchenObject[listkitchenObject.Length - 1] = obj.GetKitchenObjectname();
+            }
+        }
+
+        return listkitchenObject;
+ 
+    }
+    public bool HasPlate()
+    {
+        KitchenObject playerPlate = this.GetComponentInChildren<KitchenObject>();
+        bool isPlate = false;
+        if (playerPlate != null)
+        {
+            if (playerPlate.GetKitchenObjectname() == "Plate")
+            {
+                isPlate = true;
+            }
+        }
+        return isPlate;
     }
 }

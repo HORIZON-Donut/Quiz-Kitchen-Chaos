@@ -1,5 +1,6 @@
 using Unity.Collections;
 using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 
 public class ContainerCounter : MonoBehaviour
@@ -16,7 +17,6 @@ public class ContainerCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-        if (player.HasKitchenObject()) { Debug.Log("Has item"); }
 
         if (kitchenObject == null)
         {
@@ -27,7 +27,8 @@ public class ContainerCounter : MonoBehaviour
         }
         else
         {
-            if (!player.HasKitchenObject())
+            string[] listKitchenObject = player.HasKitchenObject();
+            if (listKitchenObject.Length == 0)
             {
                 kitchenObject.transform.SetParent(player.transform);
                 kitchenObject.transform.parent = player.GetKitchenObjectFollowTransform();
