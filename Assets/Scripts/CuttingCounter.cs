@@ -26,11 +26,14 @@ public class CuttingCounter : MonoBehaviour
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
             cuttingProcess += cuttingSpeed * Time.deltaTime;
             Cutting_FX(Time.deltaTime);
+
+			int cuttingMax;
+			float persent_process;
             if (kitchenObject.GetKitchenObjectname() == "Tomato")
             {
-                int cuttingMax = cuttingRecipeSOArray[0].cutCount;
+                cuttingMax = cuttingRecipeSOArray[0].cutCount;
                 ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
-                float persent_process = (float)(cuttingProcess) / cuttingMax;
+                persent_process = (float)(cuttingProcess) / cuttingMax;
                 processBar.CuttingCounter_OnProcessChanged(persent_process);
                 if ((cuttingProcess) >= cuttingMax)
                 {
@@ -42,6 +45,24 @@ public class CuttingCounter : MonoBehaviour
                 }
             }
 
+			switch(kitchenObject.GetKitchenObjectname())
+			{
+				case "Tomato":
+					//
+					break;
+
+				case "Cheese":
+					//
+					break;
+
+				case "Cabbage":
+					//
+					break;
+
+				default:
+					Debug.Log("Not in list");
+					break;
+			}
         }
     }
     private void Cutting_FX(float duration) {
