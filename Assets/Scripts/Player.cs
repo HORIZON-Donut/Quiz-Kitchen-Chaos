@@ -37,48 +37,28 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Counter") 
-        {
-            ClearCounter clearcounter = collision.gameObject.GetComponent<ClearCounter>();
-            clearcounter.Interact(this);
-        }
-        else if (collision.gameObject.tag == "Container")
-        {
-           ContainerCounter containercounter = collision.gameObject.GetComponent<ContainerCounter>();
-            containercounter.Interact(this);
-            Debug.Log(collision.gameObject.name);
-        }
-        else if (collision.gameObject.tag == "Cutting")
-        {
-           CuttingCounter containercounter = collision.gameObject.GetComponent<CuttingCounter>();
-            containercounter.Interact(this);
-            Debug.Log(collision.gameObject.name);
-        }
-        else if (collision.gameObject.tag == "PlatesCounter")
-        {
-           PlateCounter platecounter = collision.gameObject.GetComponent<PlateCounter>();
-            platecounter.Interact(this);
-            Debug.Log(collision.gameObject.name);
-        }
-
 		Transform selectedCounter = collision.gameObject.transform.Find("Selected");
 		if(selectedCounter != null) {selectedCounter.gameObject.SetActive(true);}
 		switch(collision.gameObject.tag)
 		{
 			case "Counter":
-				//
+				ClearCounter clearCounter = collision.gameObject.GetComponent<ClearCounter>();
+				clearCounter.Interact(this);
 				break;
 
 			case "Container":
-				//
+				ContainerCounter container = collision.gameObject.GetComponent<ContainerCounter>();
+				container.Interact(this);
 				break;
 
 			case "Cutting":
-				//
+				CuttingCounter cutting = collision.gameObject.GetComponent<CuttingCounter>();
+				cutting.Interact(this);
 				break;
 
 			case "PlatesCounter":
-				//
+				PlateCounter plate = collision.gameObject.GetComponent<PlateCounter>();
+				plate.Interact(this);
 				break;
 
 			default:
