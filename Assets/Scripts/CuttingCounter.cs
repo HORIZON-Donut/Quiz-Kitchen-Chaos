@@ -7,6 +7,7 @@ public class CuttingCounter : MonoBehaviour
 {
     [SerializeField] private Transform counterTopPoint;
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
+	[SerializeField] private ProcessBar processBar;
 
     private float cuttingProcess;
     public float cuttingSpeed = 5f;
@@ -29,7 +30,6 @@ public class CuttingCounter : MonoBehaviour
 
 			int cuttingMax;
 			float persent_process;
-			ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
 
 			switch(kitchenObject.GetKitchenObjectname())
 			{
@@ -101,7 +101,6 @@ public class CuttingCounter : MonoBehaviour
             cuttingProcess = 0;
 			int cuttingMax;
 			float persent_process;
-			ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
 
 			switch(playerKitchenObject.GetKitchenObjectname())
 			{
