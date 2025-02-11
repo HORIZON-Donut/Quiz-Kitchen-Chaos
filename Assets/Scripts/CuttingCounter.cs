@@ -29,12 +29,12 @@ public class CuttingCounter : MonoBehaviour
 
 			int cuttingMax;
 			float persent_process;
+			ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
 
 			switch(kitchenObject.GetKitchenObjectname())
 			{
 				case "Tomato":
 					cuttingMax = cuttingRecipeSOArray[0].cutCount;
-                	ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
                 	persent_process = (float)(cuttingProcess) / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	if ((cuttingProcess) >= cuttingMax)
@@ -49,7 +49,6 @@ public class CuttingCounter : MonoBehaviour
 
 				case "Cheese":
 					cuttingMax = cuttingRecipeSOArray[1].cutCount;
-                	ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
                 	persent_process = (float)(cuttingProcess) / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	if ((cuttingProcess) >= cuttingMax)
@@ -64,7 +63,6 @@ public class CuttingCounter : MonoBehaviour
 
 				case "Cabbage":
 					cuttingMax = cuttingRecipeSOArray[2].cutCount;
-                	ProcessBar processBar = this.GetComponentInChildren<ProcessBar>();
                 	persent_process = (float)(cuttingProcess) / cuttingMax;
                 	processBar.CuttingCounter_OnProcessChanged(persent_process);
                 	if ((cuttingProcess) >= cuttingMax)
