@@ -105,36 +105,15 @@ public class CuttingCounter : MonoBehaviour
 			switch(playerKitchenObject.GetKitchenObjectname())
 			{
 				case "Tomato":
-					cuttingMax = cuttingRecipeSOArray[0].cutCount;
-					playerKitchenObject.transform.parent = counterTopPoint;
-					playerKitchenObject.transform.localPosition = Vector3.zero;
-					persent_process = (float)cuttingProcess/cuttingMax;
-					processBar.CuttingCounter_OnProcessChanged(persent_process);
-					cuttingProcess++;
-					animator.SetTrigger("Cut");
-					timer = 0f;
+					CuttingObject(1);
 					break;
 
 				case "Cheese":
-					cuttingMax = cuttingRecipeSOArray[1].cutCount;
-					playerKitchenObject.transform.parent = counterTopPoint;
-					playerKitchenObject.transform.localPosition = Vector3.zero;
-					persent_process = (float)cuttingProcess/cuttingMax;
-					processBar.CuttingCounter_OnProcessChanged(persent_process);
-					cuttingProcess++;
-					animator.SetTrigger("Cut");
-					timer = 0f;
+					CuttingObject(2);
 					break;
 
 				case "Cobbage":
-					cuttingMax = cuttingRecipeSOArray[2].cutCount;
-					playerKitchenObject.transform.parent = counterTopPoint;
-					playerKitchenObject.transform.localPosition = Vector3.zero;
-					persent_process = (float)cuttingProcess/cuttingMax;
-					processBar.CuttingCounter_OnProcessChanged(persent_process);
-					cuttingProcess++;
-					animator.SetTrigger("Cut");
-					timer = 0f;
+					CuttingObject(3);
 					break;
 
 				default:
@@ -167,5 +146,17 @@ public class CuttingCounter : MonoBehaviour
         KitchenObject playerKitchenObject = this.GetComponentInChildren<KitchenObject>();
         return playerKitchenObject != null;
     }
+
+	private void CuttingObject(int index)
+	{
+		cuttingMax = cuttingRecipeSOArray[index - 1].cutCount;
+		playerKitchenObject.transform.parent = counterTopPoint;
+		playerKitchenObject.transform.localPosition = Vector3.zero;
+		persent_process = (float)cuttingProcess/cuttingMax;
+		processBar.CuttingCounter_OnProcessChanged(persent_process);
+		cuttingProcess++;
+		animator.SetTrigger("Cut");
+		timer = 0f;
+	}
 
 }
