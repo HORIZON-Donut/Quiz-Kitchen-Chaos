@@ -6,6 +6,10 @@ public class TrashBin : MonoBehaviour
 {
     [SerializeField] private Transform counterTopPoint;
 
+    void Update()
+    {
+        //
+    }
 
     public void Interact(Player player)
     {
@@ -14,15 +18,9 @@ public class TrashBin : MonoBehaviour
             Debug.Log("Has item");
             KitchenObject[] playerKitchenObject = player.GetComponentsInChildren<KitchenObject>();
 
-            if (playerKitchenObject != null)
+            foreach(KitchenObject playerObject in playerKitchenObject)
             {
-                //int level = 0;
-                for (int i = 0; i < playerKitchenObject.Length; i++)
-                {
-                    playerKitchenObject[i].transform.SetParent(this.transform);
-                    playerKitchenObject[i].transform.parent = counterTopPoint;
-                    playerKitchenObject[i].transform.localPosition = Vector3.zero;
-                }
+                Destroy(playerObject);
             }
         }
 
