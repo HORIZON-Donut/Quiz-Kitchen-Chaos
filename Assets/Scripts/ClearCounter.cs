@@ -13,6 +13,8 @@ public class ClearCounter : MonoBehaviour
         KitchenObject[] playerKitchenObjects = player.GetComponentsInChildren<KitchenObject>();
         KitchenObject[] kitchenObjectOnCounter = this.GetComponentsInChildren<KitchenObject>();
 
+        float level = 0f;
+
         // Player is holding a single object (not a plate)
         if (playerKitchenObjects.Length == 1 && playerKitchenObject != null && playerKitchenObject.GetKitchenObjectname() != "Plate")
         {
@@ -32,7 +34,15 @@ public class ClearCounter : MonoBehaviour
                 foreach (KitchenObject obj in playerKitchenObjects)
                 {
                     obj.transform.SetParent(counterTopPoint);
-                    obj.transform.localPosition = Vector3.zero;
+                    if(obj.GetKitchenObjectname() != "Plate")
+                    {
+                        level += 0.1f;
+                        obj.transform.localPosition = new Vector3(0, level, 0);
+                    }
+                    else
+                    {
+                        obj.transform.localPosition = Vector3.zero;
+                    }
                 }
             }
         }
