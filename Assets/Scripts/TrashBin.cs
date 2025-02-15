@@ -12,14 +12,17 @@ public class TrashBin : MonoBehaviour
         if (player.HasKitchenObject().Length > 0)
         {
             Debug.Log("Has item");
-            KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
+            KitchenObject[] playerKitchenObject = player.GetComponentsInChildren<KitchenObject>();
 
-            if (playerKitchenObject !=null && !this.HasKitchenObject())
+            if (playerKitchenObject != null)
             {
-                Debug.Log("Place Item!");
-                playerKitchenObject.transform.SetParent(this.transform);
-                playerKitchenObject.transform.parent = counterTopPoint;
-                playerKitchenObject.transform.localPosition = Vector3.zero;
+                //int level = 0;
+                for (int i = 0; i < playerKitchenObject.Length; i++)
+                {
+                    playerKitchenObject[i].transform.SetParent(this.transform);
+                    playerKitchenObject[i].transform.parent = counterTopPoint;
+                    playerKitchenObject[i].transform.localPosition = Vector3.zero;
+                }
             }
         }
 
@@ -28,10 +31,4 @@ public class TrashBin : MonoBehaviour
     {
         return counterTopPoint;
     }
-    public bool HasKitchenObject()
-    {
-        KitchenObject playerKitchenObject = this.GetComponentInChildren<KitchenObject>();
-        return playerKitchenObject != null;
-    }
-
 }
