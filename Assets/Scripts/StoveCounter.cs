@@ -19,4 +19,9 @@ public class StoveCounter : MonoBehaviour
     {
         
     }
+
+    public void Interact(Player player)
+    {
+        //
+    }
 }
