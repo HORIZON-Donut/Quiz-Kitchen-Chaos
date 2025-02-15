@@ -1619,6 +1619,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8813083157506010266, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
+      propertyPath: processBar
+      value: 
+      objectReference: {fileID: 1986310600}
     - target: {fileID: 9069583256505398927, guid: e7bb54a0f9c80f84299ec609d903f1f7, type: 3}
       propertyPath: m_DynamicPixelsPerUnit
       value: 1
