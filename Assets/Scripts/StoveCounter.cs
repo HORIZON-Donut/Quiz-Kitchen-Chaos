@@ -3,8 +3,8 @@ using UnityEngine;
 public class StoveCounter : MonoBehaviour
 {
     [SerializeField] private Transform counterTopPoint;
-    [SerializeField] private KitchenObject cooked;
-    [SerializeField] private KitchenObject buurned;
+    [SerializeField] private KitchenObjectSO cooked;
+    [SerializeField] private KitchenObjectSO buurned;
     [SerializeField] private ProcessBar processBar;
     [SerializeField] private float timeToCook;
     [SerializeField] private float timeToBurned;
