@@ -52,8 +52,9 @@ public class ClearCounter : MonoBehaviour
             Debug.Log("Picking up an item from the counter!");
             foreach(KitchenObject obj in kitchenObjectOnCounter)
             {
-               obj.transform.SetParent(player.GetKitchenObjectFollowTransform());
-               obj.transform.localPosition = Vector3.zero;
+                level = (obj.GetKitchenObjectname() == "Plate") ? -0.1f : 0f;
+                obj.transform.SetParent(player.GetKitchenObjectFollowTransform());
+                obj.transform.localPosition = new Vector3(0, level, 0);
             }
         }
     }
