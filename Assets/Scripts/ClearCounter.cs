@@ -22,6 +22,21 @@ public class ClearCounter : MonoBehaviour
                 playerKitchenObject.transform.localPosition = Vector3.zero;
             }
         }
+        else if (listKitchenObject.Length > 1 && listKitchenObject.Contains("Plate"))
+        {
+            KitchenObject[] playerKitchenObject = player.GetComponentsInChildren<KitchenObject>();
+
+            if (playerKitchenObject != null && !this.HasKitchenObject())
+            {
+                //int level = 0;
+                for(int i = 0;  i < playerKitchenObject.Length; i++)
+                {
+                    playerKitchenObject[i].transform.SetParent(this.transform);
+                    playerKitchenObject[i].transform.parent = counterTopPoint;
+                    playerKitchenObject[i].transform.localPosition = Vector3.zero;
+                }             
+            }
+        }
         else if(listKitchenObject.Length == 0)
         {
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
