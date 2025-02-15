@@ -17,7 +17,6 @@ public class ContainerCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-
         if (kitchenObject == null)
         {
             animator.SetTrigger("OpenClose");
