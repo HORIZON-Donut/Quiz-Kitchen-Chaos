@@ -99,21 +99,21 @@ public class CuttingCounter : MonoBehaviour
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
             Debug.Log(playerKitchenObject.GetKitchenObjectname());
             cuttingProcess = 0;
-			int cuttingMax;
-			float persent_process;
+			int cuttingMax = 0;
+			float persent_process = 0f;
 
 			switch(playerKitchenObject.GetKitchenObjectname())
 			{
 				case "Tomato":
-					CuttingObject(1);
+					CuttingObject(1, cuttingMax, persent_process, playerKitchenObject);
 					break;
 
 				case "Cheese":
-					CuttingObject(2);
+					CuttingObject(2, cuttingMax, persent_process, playerKitchenObject);
 					break;
 
 				case "Cobbage":
-					CuttingObject(3);
+					CuttingObject(3, cuttingMax, persent_process, playerKitchenObject);
 					break;
 
 				default:
@@ -147,7 +147,7 @@ public class CuttingCounter : MonoBehaviour
         return playerKitchenObject != null;
     }
 
-	private void CuttingObject(int index)
+	private void CuttingObject(int index, int cuttingMax, float persent_process, KitchenObject playerKitchenObject)
 	{
 		cuttingMax = cuttingRecipeSOArray[index - 1].cutCount;
 		playerKitchenObject.transform.parent = counterTopPoint;
