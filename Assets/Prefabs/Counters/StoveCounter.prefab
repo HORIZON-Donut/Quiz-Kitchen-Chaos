@@ -537,12 +537,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44daea93b848f3d4b8f820707ebf8697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 0}
-  cooked: {fileID: 0}
-  buurned: {fileID: 0}
+  counterTopPoint: {fileID: 2647180980959914950}
+  cooked: {fileID: 11400000, guid: 82a8ce9b456fcf740b76cab09ecca196, type: 2}
+  burned: {fileID: 11400000, guid: 0d8fabc139461f5459ddcd0689fbded7, type: 2}
   processBar: {fileID: 0}
-  timeToCook: 0
-  timeToBurned: 0
+  timeToCook: 15
+  timeToBurned: 25
+--- !u!4 &2647180980959914950 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299113909474962476, guid: de8ddb47f11010d469c3f7c5d001bf30, type: 3}
+  m_PrefabInstance: {fileID: 6309768696445994986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6392990379117832777
 PrefabInstance:
   m_ObjectHideFlags: 0

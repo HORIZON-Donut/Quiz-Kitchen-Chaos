@@ -1940,6 +1940,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: StoveCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 716365431430841206, guid: 0e71e2ad6abb63042850be67a822b010, type: 3}
+      propertyPath: processBar
+      value: 
+      objectReference: {fileID: 1986310600}
     - target: {fileID: 8442947462033551861, guid: 0e71e2ad6abb63042850be67a822b010, type: 3}
       propertyPath: m_IsActive
       value: 0
