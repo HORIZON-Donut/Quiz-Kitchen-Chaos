@@ -66,6 +66,11 @@ public class Player : MonoBehaviour
                 trash.Interact(this);
                 break;
 
+            case "StoveCounter":
+                StoveCounter stove = collision.gameObject.GetComponent<StoveCounter>();
+                stove.Interact(this);
+                break;
+
             default:
 				Debug.Log("Not in counter list");
 				break;
