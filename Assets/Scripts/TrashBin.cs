@@ -20,7 +20,7 @@ public class TrashBin : MonoBehaviour
 
             foreach(KitchenObject playerObject in playerKitchenObject)
             {
-                Destroy(playerObject);
+                Destroy(playerObject.gameObject);
             }
         }
 
