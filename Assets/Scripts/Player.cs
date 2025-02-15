@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
             case "Cutting":
             case "PlatesCounter":
             case "TrashCounter":
+            case "StoveCounter":
                 Transform selectedCounter = collision.gameObject.transform.Find("Selected");
                 selectedCounter.gameObject.SetActive(false);
                 break;
