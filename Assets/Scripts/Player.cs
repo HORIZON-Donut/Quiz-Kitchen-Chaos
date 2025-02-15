@@ -61,7 +61,12 @@ public class Player : MonoBehaviour
 				plate.Interact(this);
 				break;
 
-			default:
+            case "TrashCounter":
+                TrashBin trash = collision.gameObject.GetComponent<TrashBin>();
+                trash.Interact(this);
+                break;
+
+            default:
 				Debug.Log("Not in counter list");
 				break;
 		}
