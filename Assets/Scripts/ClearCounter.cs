@@ -17,8 +17,7 @@ public class ClearCounter : MonoBehaviour
             if (playerKitchenObject !=null && !this.HasKitchenObject())
             {
                 Debug.Log("Place Item!");
-                playerKitchenObject.transform.SetParent(this.transform);
-                playerKitchenObject.transform.parent = counterTopPoint;
+                playerKitchenObject.transform.SetParent(counterTopPoint);
                 playerKitchenObject.transform.localPosition = Vector3.zero;
             }
         }
@@ -31,8 +30,7 @@ public class ClearCounter : MonoBehaviour
                 //int level = 0;
                 for(int i = 0;  i < playerKitchenObject.Length; i++)
                 {
-                    playerKitchenObject[i].transform.SetParent(this.transform);
-                    playerKitchenObject[i].transform.parent = counterTopPoint;
+                    playerKitchenObject[i].transform.SetParent(counterTopPoint);
                     playerKitchenObject[i].transform.localPosition = Vector3.zero;
                 }             
             }
@@ -43,8 +41,7 @@ public class ClearCounter : MonoBehaviour
             Debug.Log("Pick up!");
             if (kitchenObject != null)
             {
-                kitchenObject.transform.SetParent(player.transform);
-                kitchenObject.transform.parent = player.GetKitchenObjectFollowTransform();
+                kitchenObject.transform.SetParent(player.GetKitchenObjectFollowTransform());
                 kitchenObject.transform.localPosition = Vector3.zero;
             }
         }
