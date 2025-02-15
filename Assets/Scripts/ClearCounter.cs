@@ -43,9 +43,8 @@ public class ClearCounter : MonoBehaviour
             foreach(KitchenObject obj in kitchenObjectOnCounter)
             {
                obj.transform.SetParent(player.GetKitchenObjectFollowTransform());
-                obj.transform.localPosition = Vector3.zero;
+               obj.transform.localPosition = Vector3.zero;
             }
-            
         }
     }
     public Transform GetKitchenObjectFollowTransform() 
