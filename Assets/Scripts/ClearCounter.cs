@@ -7,7 +7,6 @@ public class ClearCounter : MonoBehaviour
 {
     [SerializeField] private Transform counterTopPoint;
 
-
     public void Interact(Player player)
     {
         string[] listKitchenObject = player.HasKitchenObject();
