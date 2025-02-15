@@ -73,11 +73,19 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Counter" || collision.gameObject.tag == "Container" || collision.gameObject.tag == "Cutting" || collision.gameObject.tag == "PlatesCounter")
+        switch(collision.gameObject.tag)
         {
-            Transform selectedCounter = collision.gameObject.transform.Find("Selected");
-            selectedCounter.gameObject.SetActive(false);
-            Debug.Log(collision.gameObject.name);
+            case "Counter":
+            case "Container":
+            case "Cutting":
+            case "PlatesCounter":
+            case "TrashCounter":
+                Transform selectedCounter = collision.gameObject.transform.Find("Selected");
+                selectedCounter.gameObject.SetActive(false);
+                break;
+
+            default:
+                break;
         }
     }
 
