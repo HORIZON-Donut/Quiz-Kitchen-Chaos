@@ -537,6 +537,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44daea93b848f3d4b8f820707ebf8697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 0}
+  cooked: {fileID: 0}
+  buurned: {fileID: 0}
+  processBar: {fileID: 0}
+  timeToCook: 0
+  timeToBurned: 0
 --- !u!1001 &6392990379117832777
 PrefabInstance:
   m_ObjectHideFlags: 0
