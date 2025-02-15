@@ -43,7 +43,6 @@ public class ClearCounter : MonoBehaviour
             Debug.Log("Pick up!");
             if (kitchenObject != null)
             {
-
                 kitchenObject.transform.SetParent(player.transform);
                 kitchenObject.transform.parent = player.GetKitchenObjectFollowTransform();
                 kitchenObject.transform.localPosition = Vector3.zero;
