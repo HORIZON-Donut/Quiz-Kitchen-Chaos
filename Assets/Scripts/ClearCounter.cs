@@ -9,43 +9,44 @@ public class ClearCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-        string[] listKitchenObject = player.HasKitchenObject();
-        if (listKitchenObject.Length == 1 && !listKitchenObject.Contains("Plate"))
-        {
-            KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
+        KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
+        KitchenObject[] playerKitchenObjects = player.GetComponentsInChildren<KitchenObject>();
+        KitchenObject[] kitchenObjectOnCounter = this.GetComponentsInChildren<KitchenObject>();
 
-            if (playerKitchenObject !=null && !this.HasKitchenObject())
+        // Player is holding a single object (not a plate)
+        if (playerKitchenObjects.Length == 1 && playerKitchenObject != null && playerKitchenObject.GetKitchenObjectname() != "Plate")
+        {
+            if (!this.HasKitchenObject()) // Counter must be empty
             {
-                Debug.Log("Place Item!");
+                Debug.Log("Placing item on counter!");
                 playerKitchenObject.transform.SetParent(counterTopPoint);
                 playerKitchenObject.transform.localPosition = Vector3.zero;
             }
         }
-        else if (listKitchenObject.Length > 1 && listKitchenObject.Contains("Plate"))
+        // Player is holding multiple objects and one of them is a plate
+        else if (playerKitchenObjects.Length > 1 && playerKitchenObjects.Any(obj => obj.GetKitchenObjectname() == "Plate"))
         {
-            KitchenObject[] playerKitchenObject = player.GetComponentsInChildren<KitchenObject>();
-
-            if (playerKitchenObject != null && !this.HasKitchenObject())
+            if (!this.HasKitchenObject()) // Counter must be empty
             {
-                //int level = 0;
-                for(int i = 0;  i < playerKitchenObject.Length; i++)
+                Debug.Log("Placing multiple items on counter!");
+                foreach (KitchenObject obj in playerKitchenObjects)
                 {
-                    playerKitchenObject[i].transform.SetParent(counterTopPoint);
-                    playerKitchenObject[i].transform.localPosition = Vector3.zero;
-                }             
+                    obj.transform.SetParent(counterTopPoint);
+                    obj.transform.localPosition = Vector3.zero;
+                }
             }
         }
-        else if(listKitchenObject.Length == 0)
+        // Player has no items and wants to pick up an object
+        else if (playerKitchenObjects.Length == 0 && kitchenObjectOnCounter != null)
         {
-            KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
-            Debug.Log("Pick up!");
-            if (kitchenObject != null)
+            Debug.Log("Picking up an item from the counter!");
+            foreach(KitchenObject obj in kitchenObjectOnCounter)
             {
-                kitchenObject.transform.SetParent(player.GetKitchenObjectFollowTransform());
-                kitchenObject.transform.localPosition = Vector3.zero;
+               obj.transform.SetParent(player.GetKitchenObjectFollowTransform());
+                obj.transform.localPosition = Vector3.zero;
             }
+            
         }
-
     }
     public Transform GetKitchenObjectFollowTransform() 
     {
