@@ -22,18 +22,6 @@ public class TrashBin : MonoBehaviour
                 playerKitchenObject.transform.localPosition = Vector3.zero;
             }
         }
-        else
-        {
-            KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
-            Debug.Log("Pick up!");
-            if (kitchenObject != null)
-            {
-
-                kitchenObject.transform.SetParent(player.transform);
-                kitchenObject.transform.parent = player.GetKitchenObjectFollowTransform();
-                kitchenObject.transform.localPosition = Vector3.zero;
-            }
-        }
 
     }
     public Transform GetKitchenObjectFollowTransform() 
