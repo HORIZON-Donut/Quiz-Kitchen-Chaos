@@ -26,33 +26,13 @@ public class StoveCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cuttingProcess > 0)
+        if (cookingProcess > 0)
         {
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
-            cuttingProcess += cuttingSpeed * Time.deltaTime;
-            Cutting_FX(Time.deltaTime);
+            cookingProcess += cookingSpeed * Time.deltaTime;
 
             int cuttingMax = 0;
             float persent_process = 0f;
-
-            switch (kitchenObject.GetKitchenObjectname())
-            {
-                case "Tomato":
-                    CuttingProcess(0, cuttingMax, persent_process, kitchenObject);
-                    break;
-
-                case "Cheese":
-                    CuttingProcess(1, cuttingMax, persent_process, kitchenObject);
-                    break;
-
-                case "Cabbage":
-                    CuttingProcess(2, cuttingMax, persent_process, kitchenObject);
-                    break;
-
-                default:
-                    Debug.Log("Not in list");
-                    break;
-            }
         }
     }
 
