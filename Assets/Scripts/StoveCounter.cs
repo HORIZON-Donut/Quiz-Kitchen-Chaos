@@ -48,6 +48,7 @@ public class StoveCounter : MonoBehaviour
                     processBar.CuttingCounter_OnProcessChanged(0f);
                     cookingProcess = 0;
 
+                    sound.Stop();
                     //isBurning = true;
                 }
             }
@@ -76,6 +77,8 @@ public class StoveCounter : MonoBehaviour
                 processBar.CuttingCounter_OnProcessChanged(persent_process);
                 cookingProcess++;
                 timer = 0f;
+
+                sound.Play();
             }
         }
         else
