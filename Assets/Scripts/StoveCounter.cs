@@ -14,15 +14,6 @@ public class StoveCounter : MonoBehaviour
 
     private float cookingProcess;
     private float cookingSpeed = 5f;
-    private float timer = 0f;
-
-    private bool isBurning = false;
-
-    //private Animator animator;
-    private void Awake()
-    {
-        isBurning = false;
-    }
 
     // Update is called once per frame
     void Update()
@@ -87,14 +78,12 @@ public class StoveCounter : MonoBehaviour
 
             if (playerKitchenObject.GetKitchenObjectname() == "Meat")
             {
-                isBurning = false;
                 cookingMax = timeToCook;
                 playerKitchenObject.transform.parent = counterTopPoint;
                 playerKitchenObject.transform.localPosition = Vector3.zero;
                 persent_process = (float)cookingProcess / cookingMax;
                 processBar.CuttingCounter_OnProcessChanged(persent_process);
                 cookingProcess++;
-                timer = 0f;
 
                 sound.Play();
             }
