@@ -30,6 +30,7 @@ public class StoveCounter : MonoBehaviour
         if (cookingProcess > 0)
         {
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
+            if (kitchenObject == null) return;
             cookingProcess += cookingSpeed * Time.deltaTime;
 
             int cookingMax = 0;
@@ -46,9 +47,10 @@ public class StoveCounter : MonoBehaviour
                     Transform sliceTransform = Instantiate(cooked.prefab, counterTopPoint);
                     sliceTransform.transform.localPosition = Vector3.zero;
                     processBar.CuttingCounter_OnProcessChanged(0f);
+                    cookingProcess = 1f;
                 }
             }
-            if (kitchenObject.GetKitchenObjectname() == "CookedMeat")
+            else if (kitchenObject.GetKitchenObjectname() == "CookedMeat")
             {
                 cookingMax = timeToBurned;
                 persent_process = (float)(cookingProcess) / cookingMax;
