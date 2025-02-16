@@ -8,6 +8,7 @@ public class StoveCounter : MonoBehaviour
     [SerializeField] private KitchenObjectSO cooked;
     [SerializeField] private KitchenObjectSO burned;
     [SerializeField] private StoveProcessBar processBar;
+    [SerializeField] private AudioSource sound;
     [SerializeField] private int timeToCook;
     [SerializeField] private int timeToBurned;
 
