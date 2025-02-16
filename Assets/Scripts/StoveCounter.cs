@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class StoveCounter : MonoBehaviour
@@ -27,7 +28,45 @@ public class StoveCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-        
+        string[] listKitchenObject = player.HasKitchenObject();
+        if (listKitchenObject.Length == 1 && !listKitchenObject.Contains("Plate") && !this.HasKitchenObject())
+        {
+            Debug.Log("Has item");
+            KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
+            Debug.Log(playerKitchenObject.GetKitchenObjectname());
+            cuttingProcess = 0;
+            int cuttingMax = 0;
+            float persent_process = 0f;
+
+            switch (playerKitchenObject.GetKitchenObjectname())
+            {
+                case "Tomato":
+                    CuttingObject(0, cuttingMax, persent_process, playerKitchenObject);
+                    break;
+
+                case "Cheese":
+                    CuttingObject(1, cuttingMax, persent_process, playerKitchenObject);
+                    break;
+
+                case "Cobbage":
+                    CuttingObject(2, cuttingMax, persent_process, playerKitchenObject);
+                    break;
+
+                default:
+                    Debug.Log("Not in list");
+                    break;
+            }
+        }
+        else
+        {
+            if (this.HasKitchenObject() && listKitchenObject.Contains("Plate"))
+            {
+                KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
+                kitchenObject.transform.SetParent(player.transform);
+                kitchenObject.transform.parent = player.GetKitchenObjectFollowTransform();
+                kitchenObject.transform.localPosition = Vector3.zero;
+            }
+        }
     }
     public bool HasKitchenObject()
     {
