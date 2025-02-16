@@ -33,6 +33,11 @@ public class StoveCounter : MonoBehaviour
 
             int cookingMax = 0;
             float persent_process = 0f;
+
+            if(kitchenObject.GetKitchenObjectname() == "Meat")
+            {
+                //
+            }
         }
     }
 
