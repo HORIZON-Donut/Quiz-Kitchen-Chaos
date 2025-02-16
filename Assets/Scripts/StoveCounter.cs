@@ -37,14 +37,12 @@ public class StoveCounter : MonoBehaviour
 
             if (kitchenObject == null)
             {
-                cookingProcess = 0;
-                persent_process = (float)(cookingProcess) / cookingMax;
-                processBar.CuttingCounter_OnProcessChanged(persent_process);
-
+                processBar.CuttingCounter_OnProcessChanged(0.1f);
+                cookingProcess = 0f;
                 return;
             }
 
-            if(kitchenObject.GetKitchenObjectname() == "Meat")
+            if (kitchenObject.GetKitchenObjectname() == "Meat")
             {
                 cookingMax = timeToCook;
                 persent_process = (float)(cookingProcess) / cookingMax;
