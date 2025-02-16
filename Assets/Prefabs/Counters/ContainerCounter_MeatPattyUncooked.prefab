@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContainerCounter_MeatPattyUncooked
       objectReference: {fileID: 0}
+    - target: {fileID: 4149667675132127668, guid: 6b93a379ddc445147ae9ec933fba9be6, type: 3}
+      propertyPath: m_TagString
+      value: Container
+      objectReference: {fileID: 0}
     - target: {fileID: 4149667675132127670, guid: 6b93a379ddc445147ae9ec933fba9be6, type: 3}
       propertyPath: m_RootOrder
       value: 0
