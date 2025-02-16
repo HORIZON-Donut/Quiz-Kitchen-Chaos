@@ -30,11 +30,19 @@ public class StoveCounter : MonoBehaviour
         if (cookingProcess > 0)
         {
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
-            if (kitchenObject == null) return;
             cookingProcess += cookingSpeed * Time.deltaTime;
 
             int cookingMax = 0;
             float persent_process = 0f;
+
+            if (kitchenObject == null)
+            {
+                cookingProcess = 0;
+                persent_process = (float)(cookingProcess) / cookingMax;
+                processBar.CuttingCounter_OnProcessChanged(persent_process);
+
+                return;
+            }
 
             if(kitchenObject.GetKitchenObjectname() == "Meat")
             {
