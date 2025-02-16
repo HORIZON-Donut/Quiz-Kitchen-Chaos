@@ -34,27 +34,13 @@ public class StoveCounter : MonoBehaviour
             Debug.Log("Has item");
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
             Debug.Log(playerKitchenObject.GetKitchenObjectname());
-            cuttingProcess = 0;
+            cookingProcess = 0;
             int cuttingMax = 0;
             float persent_process = 0f;
 
-            switch (playerKitchenObject.GetKitchenObjectname())
+            if (playerKitchenObject.GetKitchenObjectname() == "Meat")
             {
-                case "Tomato":
-                    CuttingObject(0, cuttingMax, persent_process, playerKitchenObject);
-                    break;
-
-                case "Cheese":
-                    CuttingObject(1, cuttingMax, persent_process, playerKitchenObject);
-                    break;
-
-                case "Cobbage":
-                    CuttingObject(2, cuttingMax, persent_process, playerKitchenObject);
-                    break;
-
-                default:
-                    Debug.Log("Not in list");
-                    break;
+                //
             }
         }
         else
