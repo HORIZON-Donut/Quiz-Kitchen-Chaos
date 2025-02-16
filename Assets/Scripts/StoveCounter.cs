@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -7,17 +8,19 @@ public class StoveCounter : MonoBehaviour
     [SerializeField] private KitchenObjectSO cooked;
     [SerializeField] private KitchenObjectSO burned;
     [SerializeField] private ProcessBar processBar;
-    [SerializeField] private float timeToCook;
-    [SerializeField] private float timeToBurned;
+    [SerializeField] private int timeToCook;
+    [SerializeField] private int timeToBurned;
 
     private float cookingProcess;
     private float cookingSpeed = 5f;
-    private Animator animator;
-    private float time = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float timer = 0f;
+
+    private bool isBurning = false;
+
+    //private Animator animator;
     private void Awake()
     {
-        //
+        isBurning = false;
     }
 
     // Update is called once per frame
@@ -35,12 +38,19 @@ public class StoveCounter : MonoBehaviour
             KitchenObject playerKitchenObject = player.GetComponentInChildren<KitchenObject>();
             Debug.Log(playerKitchenObject.GetKitchenObjectname());
             cookingProcess = 0;
-            int cuttingMax = 0;
+            int cookingMax = 0;
             float persent_process = 0f;
 
             if (playerKitchenObject.GetKitchenObjectname() == "Meat")
             {
-                //
+                isBurning = false;
+                cookingMax = timeToCook;
+                playerKitchenObject.transform.parent = counterTopPoint;
+                playerKitchenObject.transform.localPosition = Vector3.zero;
+                persent_process = (float)cookingProcess / cookingMax;
+                processBar.CuttingCounter_OnProcessChanged(persent_process);
+                cookingProcess++;
+                timer = 0f;
             }
         }
         else
