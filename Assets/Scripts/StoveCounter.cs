@@ -37,7 +37,7 @@ public class StoveCounter : MonoBehaviour
 
             if(kitchenObject.GetKitchenObjectname() == "Meat")
             {
-                cookingMax = isBurning ? timeToBurned : timeToCook;
+                cookingMax = timeToCook;
                 persent_process = (float)(cookingProcess) / cookingMax;
                 processBar.CuttingCounter_OnProcessChanged(persent_process);
                 if ((cookingProcess) >= cookingMax)
@@ -46,10 +46,20 @@ public class StoveCounter : MonoBehaviour
                     Transform sliceTransform = Instantiate(cooked.prefab, counterTopPoint);
                     sliceTransform.transform.localPosition = Vector3.zero;
                     processBar.CuttingCounter_OnProcessChanged(0f);
+                }
+            }
+            if (kitchenObject.GetKitchenObjectname() == "CookedMeat")
+            {
+                cookingMax = timeToBurned;
+                persent_process = (float)(cookingProcess) / cookingMax;
+                processBar.CuttingCounter_OnProcessChanged(persent_process);
+                if ((cookingProcess) >= cookingMax)
+                {
+                    Destroy(kitchenObject.gameObject);
+                    Transform sliceTransform = Instantiate(burned.prefab, counterTopPoint);
+                    sliceTransform.transform.localPosition = Vector3.zero;
+                    processBar.CuttingCounter_OnProcessChanged(0f);
                     cookingProcess = 0;
-
-                    sound.Stop();
-                    //isBurning = true;
                 }
             }
         }
@@ -89,6 +99,8 @@ public class StoveCounter : MonoBehaviour
                 kitchenObject.transform.SetParent(player.transform);
                 kitchenObject.transform.parent = player.GetKitchenObjectFollowTransform();
                 kitchenObject.transform.localPosition = Vector3.zero;
+
+                sound.Stop();
             }
         }
     }
