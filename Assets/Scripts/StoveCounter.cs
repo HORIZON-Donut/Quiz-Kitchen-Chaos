@@ -9,7 +9,7 @@ public class StoveCounter : MonoBehaviour
     [SerializeField] private float timeToCook;
     [SerializeField] private float timeToBurned;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         
     }
