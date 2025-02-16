@@ -540,7 +540,7 @@ MonoBehaviour:
   counterTopPoint: {fileID: 2647180980959914950}
   cooked: {fileID: 11400000, guid: 82a8ce9b456fcf740b76cab09ecca196, type: 2}
   burned: {fileID: 11400000, guid: 0d8fabc139461f5459ddcd0689fbded7, type: 2}
-  processBar: {fileID: 0}
+  processBar: {fileID: 1252964595060954927}
   timeToCook: 15
   timeToBurned: 25
 --- !u!4 &2647180980959914950 stripped
