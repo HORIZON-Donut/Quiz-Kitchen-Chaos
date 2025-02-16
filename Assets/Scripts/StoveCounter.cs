@@ -31,7 +31,7 @@ public class StoveCounter : MonoBehaviour
             KitchenObject kitchenObject = this.GetComponentInChildren<KitchenObject>();
             cookingProcess += cookingSpeed * Time.deltaTime;
 
-            int cuttingMax = 0;
+            int cookingMax = 0;
             float persent_process = 0f;
         }
     }
