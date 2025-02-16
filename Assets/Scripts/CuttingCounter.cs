@@ -82,7 +82,7 @@ public class CuttingCounter : MonoBehaviour
 					CuttingObject(1, cuttingMax, persent_process, playerKitchenObject);
 					break;
 
-				case "Cobbage":
+				case "Cabbage":
 					CuttingObject(2, cuttingMax, persent_process, playerKitchenObject);
 					break;
 
