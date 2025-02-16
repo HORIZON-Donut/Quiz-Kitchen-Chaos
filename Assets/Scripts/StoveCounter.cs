@@ -36,7 +36,7 @@ public class StoveCounter : MonoBehaviour
 
             if(kitchenObject.GetKitchenObjectname() == "Meat")
             {
-                cookingMax = timeToCook;
+                cookingMax = isBurning ? timeToBurned : timeToCook;
                 persent_process = (float)(cookingProcess) / cookingMax;
                 processBar.CuttingCounter_OnProcessChanged(persent_process);
                 if ((cookingProcess) >= cookingMax)
@@ -46,6 +46,8 @@ public class StoveCounter : MonoBehaviour
                     sliceTransform.transform.localPosition = Vector3.zero;
                     processBar.CuttingCounter_OnProcessChanged(0f);
                     cookingProcess = 0;
+
+                    //isBurning = true;
                 }
             }
         }
