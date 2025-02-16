@@ -16,7 +16,7 @@ public class StoveCounter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        
+        //
     }
 
     // Update is called once per frame
@@ -27,6 +27,11 @@ public class StoveCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-        //
+        
+    }
+    public bool HasKitchenObject()
+    {
+        KitchenObject playerKitchenObject = this.GetComponentInChildren<KitchenObject>();
+        return playerKitchenObject != null;
     }
 }
