@@ -669,7 +669,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7161491794235055720, guid: d346bf3465e9213448cd9f73ef78a3dc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4976718803929309588}
+    - targetCorrespondingSourceObject: {fileID: 7161491794235055720, guid: d346bf3465e9213448cd9f73ef78a3dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1252964595060954927}
   m_SourcePrefab: {fileID: 100100000, guid: d346bf3465e9213448cd9f73ef78a3dc, type: 3}
+--- !u!114 &2522460118372745173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8915406509928387996, guid: d346bf3465e9213448cd9f73ef78a3dc, type: 3}
+  m_PrefabInstance: {fileID: 6392990379117832777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4312984130537108513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7161491794235055720, guid: d346bf3465e9213448cd9f73ef78a3dc, type: 3}
@@ -697,6 +711,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1252964595060954927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4312984130537108513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ed0fc7ffe351b41ad2c96e08927f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingCounter: {fileID: 716365431430841206}
+  barImage: {fileID: 2522460118372745173}
 --- !u!224 &8152496553712962057 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2998001569790074944, guid: d346bf3465e9213448cd9f73ef78a3dc, type: 3}
