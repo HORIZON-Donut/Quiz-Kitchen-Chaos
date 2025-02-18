@@ -57,8 +57,21 @@ public class ClearCounter : MonoBehaviour
             Debug.Log("Picking up an item from the counter!");
             foreach(KitchenObject obj in kitchenObjectOnCounter)
             {
-                level = (obj.GetKitchenObjectname() == "Plate") ? -0.1f : 0.1f;
-                level = (obj.GetKitchenObjectname() == "Bread") ? 0f : 0.1f;
+                switch(obj.GetKitchenObjectname())
+                {
+                    case "Plate":
+                        level = -0.1f;
+                        break;
+                    case "Bread":
+                        level = 0f;
+                        break;
+                    default:
+                        level = (kitchenObjectOnCounter.Any(obj => obj.GetKitchenObjectname() == "Bread")) ? 0.1f : level;
+                        level += 0.1f;
+                        break;
+                }
+                //level = (obj.GetKitchenObjectname() == "Plate") ? -0.1f :level;
+                //level = (obj.GetKitchenObjectname() == "Bread") ? 0f :level;
                 obj.transform.SetParent(player.GetKitchenObjectFollowTransform());
                 obj.transform.localPosition = new Vector3(0, level, 0);
             }
