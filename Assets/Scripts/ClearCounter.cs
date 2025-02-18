@@ -34,20 +34,20 @@ public class ClearCounter : MonoBehaviour
                 foreach (KitchenObject obj in playerKitchenObjects)
                 {
                     obj.transform.SetParent(counterTopPoint);
-                    switch(obj.GetKitchenObjectname())
+                    switch (obj.GetKitchenObjectname())
                     {
                         case "Plate":
-                            obj.transform.localPosition = Vector3.zero;
-                            level = 0.1f;
+                            level = -0.1f;
                             break;
                         case "Bread":
-                            obj.transform.localPosition = new Vector3(0, 0.1f, 0);
-                            level = 0.2f;
+                            level = 0f;
                             break;
                         default:
-                            obj.transform.localPosition = new Vector3(0, level, 0);
+                            level = (kitchenObjectOnCounter.Any(obj => obj.GetKitchenObjectname() == "Bread")) ? 0.1f : level;
+                            level += 0.1f;
                             break;
                     }
+                    obj.transform.localPosition = new Vector3(0, level, 0);
                 }
             }
         }
@@ -70,8 +70,6 @@ public class ClearCounter : MonoBehaviour
                         level += 0.1f;
                         break;
                 }
-                //level = (obj.GetKitchenObjectname() == "Plate") ? -0.1f :level;
-                //level = (obj.GetKitchenObjectname() == "Bread") ? 0f :level;
                 obj.transform.SetParent(player.GetKitchenObjectFollowTransform());
                 obj.transform.localPosition = new Vector3(0, level, 0);
             }
