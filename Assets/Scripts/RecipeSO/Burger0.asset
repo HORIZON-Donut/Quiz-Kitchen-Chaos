@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b148a87a9fa7a544ca77eaf40ca9743a, type: 3}
-  m_Name: Salad
+  m_Name: Burger0
   m_EditorClassIdentifier: 
   kitchenObjectSOList:
-  - {fileID: 11400000, guid: e86ec032923f44481bc35c6a43513329, type: 2}
+  - {fileID: 11400000, guid: c3cb50c064337d04da4ec31be9905878, type: 2}
+  - {fileID: 11400000, guid: 82a8ce9b456fcf740b76cab09ecca196, type: 2}
   - {fileID: 11400000, guid: d85bdb1788a7444fbbb1d883e5f04ef4, type: 2}
-  recipeName: Salad
+  recipeName: Burger
