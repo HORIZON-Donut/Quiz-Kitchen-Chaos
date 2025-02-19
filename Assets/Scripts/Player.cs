@@ -75,6 +75,14 @@ public class Player : MonoBehaviour
 				Debug.Log("Not in counter list");
 				break;
 		}
+        if (collision.gameObject.tag == "DeliveryCounter")
+        {
+            selectedCounter.gameObject.SetActive(true);
+            DeliveryCounter deliverycounter = collision.gameObject.GetComponent<DeliveryCounter>();
+            deliverycounter.Interact(this);
+            Debug.Log(collision.gameObject.name);
+        }
+
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -86,6 +94,7 @@ public class Player : MonoBehaviour
             case "PlatesCounter":
             case "TrashCounter":
             case "StoveCounter":
+			case "DeliveryCounter":
                 Transform selectedCounter = collision.gameObject.transform.Find("Selected");
                 selectedCounter.gameObject.SetActive(false);
                 break;
