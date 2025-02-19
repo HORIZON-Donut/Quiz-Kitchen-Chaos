@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82a8ce9b456fcf740b76cab09ecca196, type: 2}
   - {fileID: 11400000, guid: d85bdb1788a7444fbbb1d883e5f04ef4, type: 2}
   - {fileID: 11400000, guid: a687af96489d7685884a60883c38a12f, type: 2}
-  recipeName: SaladBurger
+  - {fileID: 11400000, guid: e86ec032923f44481bc35c6a43513329, type: 2}
+  recipeName: PrimeBurger
