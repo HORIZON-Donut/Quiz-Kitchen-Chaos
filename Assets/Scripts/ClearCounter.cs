@@ -37,7 +37,7 @@ public class ClearCounter : MonoBehaviour
                     switch (obj.GetKitchenObjectname())
                     {
                         case "Plate":
-                            level = -0.1f;
+                            level = 0;
                             break;
                         case "Bread":
                             level = 0f;
